@@ -1,0 +1,28 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+<hr>
+<div class="main">
+<div class="row">
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-dark bg-light  mb-3">
+			  	<div class="card-header">
+			  		<h5 class="card-title">BORRAR PEDIDO</h5>
+			  	</div>
+			  	<div class="card-body">
+                    <p>BORRAR el pedido {{item}}?</p>
+                    <form action="{% url 'delete_order' item.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" name="Confirm">
+                        <hr>
+                        <a href="{% url 'home' %">CANCELAR</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
